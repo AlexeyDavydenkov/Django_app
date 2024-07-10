@@ -1,0 +1,52 @@
+{% extends "shopapp/base.html" %}
+
+{% load i18n %}
+
+{% block title %}
+	{% translate "Product list"%}
+{% endblock %}
+
+{% block body %}
+	<h1>{% translate "Products" %}:</h1>
+    {% if products %}
+        <h2 style="color: green">
+            {% blocktranslate count product_count=products|length %}
+                There is only one product
+                {% plural %}
+                There are {{ product_count }} products:
+            {% endblocktranslate %}
+        </h2>
+        <div>
+        {% for product in products %}
+            <div>
+                <h2><a href="{% url "shopapp:product_details" pk=product.pk %}"
+                >{% translate "Name" context "product name" %}: {{ product.name }}</h2></a>
+                <p>{% translate "Description" %}: {{ product.description }}</p>
+                <p>{% translate "Price" %}: {{ product.price }}</p>
+                    {% translate "no discount" as no_discount %}
+                <p>{% translate "Discount" %}: {% firstof product.discount no_discount %}</p>
+                <p>{% translate "Created_by" %}: {{ product.created_by }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <h3>{% translate "No products yet" %}</h3>
+    {% endif %}
+    <div>
+    {% if perms.shopapp.add_product %}
+        <h3 style="color: darkmagenta">
+        <a href="{% url "shopapp:product_create" %}">
+            {% translate "Create a new product" %}
+        </a>
+        </h3>
+    {% endif %}
+    </div>
+
+    <div>
+    <h2 style="color: darkmagenta">
+    <a href="{% url "shopapp:index" %}">
+        {% translate "Back to main menu Shop" %}
+    </a>
+    </h2>
+    </div>
+{% endblock %}

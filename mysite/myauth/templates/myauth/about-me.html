@@ -1,0 +1,32 @@
+{% extends "myauth/base.html" %}
+
+{% block title %}
+	About me
+{% endblock %}
+
+{% block body %}
+    <h1>User info</h1>
+    {% if user.is_authenticated %}
+        <h2>Detail</h2>
+        <p>Username: {{ user.username }}</p>
+        <p>First name: {{ user.first_name }}</p>
+        <p>Last name: {{ user.last_name }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Bio: {{ user.profile.bio }}</p>
+        {% if user.profile.avatar %}
+            <img src="{{ user.profile.avatar.url }}" alt="Avatar">
+        {% else %}
+            <h3 style="color: darkviolet">
+                This user does not have an avatar yet, use the form below to set an avatar
+            </h3>
+        {% endif %}
+        <form method="post" enctype="multipart/form-data" action={% url "myauth:upload-avatar_me" %}>
+            {% csrf_token %}
+            <label for="avatar">Upload new avatar:</label>
+            <input type="file" name="avatar" id="avatar">
+            <button type="submit">Upload</button>
+        </form>
+    {% else %}
+        <h2>User is anonymous</h2>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "myauth/base.html" %}
+
+{% block title %}
+	Logout
+{% endblock %}
+
+{% block body %}
+    <<h2>Вы уверены, что хотите выйти?</h2>
+    <form method="post" action="{% url 'myauth:logout' %}">
+        {% csrf_token %}
+        <button type="submit">Выйти</button>
+    </form>
+    <h3><a href="{% url 'myauth:login' %}">Отмена</a></h3>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "shopapp/base.html" %}
+
+{% block title %}
+    Shop Index
+{% endblock %}
+
+
+{% block body %}
+    <h1>
+        "Hello dear user! We are glad to welcome you to our store!"
+    </h1>
+
+    <div>
+        <h3><a href="{% url "shopapp:products_list" %}">Go to Products_list</a></h3>
+    </div>
+    <div>
+        <h3><a href="{% url "shopapp:orders_list" %}">Go to Orders_list</a></h3>
+    </div>
+     <div>
+        <h3><a href="{% url "myauth:users" %}">Go to Users_list</a></h3>
+    </div>
+
+    <div>
+        {% now "H:i" %}
+    </div>
+    <div>
+        {% now "l" as weekday %}
+        Today is {{ weekday }}
+    </div>
+
+{% endblock %}
+
+
