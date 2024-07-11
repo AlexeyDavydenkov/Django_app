@@ -26,15 +26,20 @@ services:
 
 
   nginx:
-      image: nginx:latest
-      ports:
-        - "80:80"
-      volumes:
-        - ./nginx.conf:/etc/nginx/conf.d/default.conf
-        - ./mysite/staticfiles:/app/staticfiles
-        - ./mysite/uploads:/app/uploads
-      depends_on:
-        - app
+    build:
+      context: .
+      dockerfile: ./Dockerfile.nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./mysite/staticfiles:/app/staticfiles
+      - ./mysite/uploads:/app/uploads
+    depends_on:
+      - app
+    environment:
+      - SERVER_NAME=${SERVER_NAME}
+    env_file:
+      - .env
 
 
 #  grafana:
