@@ -38,7 +38,7 @@
         </h3>
     {% endif %}
     <div>
-    {% if perms.shopapp.add_product %}
+    {% if user.is_authenticated %}
         <h3 style="color: darkmagenta">
         <a href="{% url "shopapp:product_create" %}">
             {% translate "Create a new product" %}

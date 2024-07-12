@@ -7,14 +7,12 @@
 {% block body %}
     <h1>User info</h1>
     {% if user.is_authenticated %}
-        <h2>Detail</h2>
         <p>Username: {{ user.username }}</p>
         <p>First name: {{ user.first_name }}</p>
         <p>Last name: {{ user.last_name }}</p>
         <p>Email: {{ user.email }}</p>
         <p>Bio: {{ user.profile.bio }}</p>
         {% if user.profile.avatar %}
-            <p>Avatar URL: {{ user.profile.avatar.url }}</p>
             <img src="{{ user.profile.avatar.url }}" alt="Avatar">
         {% else %}
             <h3 style="color: darkviolet">
@@ -27,6 +25,11 @@
             <input type="file" name="avatar" id="avatar">
             <button type="submit">Upload</button>
         </form>
+        <h3 style="color: darkmagenta">
+        <a href="{% url "myauth:user_update" pk=user.pk %}">
+            Change personal data
+        </a>
+        </h3>
     {% else %}
         <h2>User is anonymous</h2>
     {% endif %}

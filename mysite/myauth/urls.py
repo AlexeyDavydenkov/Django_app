@@ -13,6 +13,7 @@ from .views import (
     UploadAvatarView,
     UserListView,
     UserDetailView,
+    UpdateUserView
 )
 
 app_name = "myauth"
@@ -26,6 +27,7 @@ urlpatterns = [
     path("logout_confirm/", LogoutConfirmView.as_view(), name="logout_confirm"),
     path("about-me/", AboutMeView.as_view(), name="about-me"),
     path("users/<int:pk>/", UserDetailView.as_view(), name="user-detail"),
+    path("users/<int:pk>/update/", UpdateUserView.as_view(), name="user_update"),
     path("upload-avatar_me/",UploadAvatarAboutMeView.as_view(), name="upload-avatar_me"),
     path("upload-avatar/", UploadAvatarView.as_view(), name="upload-avatar"),
     path("register/", RegisterView.as_view(), name="register"),

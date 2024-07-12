@@ -2,12 +2,13 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpRequest
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.views import LogoutView
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, CreateView, View, ListView, DetailView
+from django.views.generic import TemplateView, CreateView, View, ListView, DetailView, UpdateView
 
 from .models import Profile
+from .forms import UserForm, ProfileForm
 
 
 class RegisterView(CreateView):
@@ -72,6 +73,37 @@ class UploadAvatarView(View):
             profile.avatar = avatar
             profile.save()
         return redirect('myauth:user-detail', pk=user_id)
+
+
+class UpdateUserView(UpdateView):
+    model = User
+    form_class = UserForm
+    template_name = "myauth/user_update_form.html"
+    template_name_suffix = "_update_form"
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profile_form'] = ProfileForm(instance=self.request.user.profile)
+        return context
+
+    def form_valid(self, form):
+        user_form = form.save(commit=False)
+        user_form.save()
+
+        profile_form = ProfileForm(self.request.POST, self.request.FILES, instance=self.request.user.profile)
+        if profile_form.is_valid():
+            profile_form.save()
+
+        return redirect('myauth:about-me')
+
+    def get_success_url(self):
+        return reverse_lazy(
+            "myauth:about-me",
+            # kwargs={"pk": self.object.pk},
+        )
 
 
 def set_cookie_view(request: HttpRequest) -> HttpResponse:

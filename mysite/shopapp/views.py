@@ -5,7 +5,7 @@ from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, Http404
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, UpdateView, CreateView, DeleteView, DetailView, View
-from django.contrib.auth.mixins import PermissionRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin, UserPassesTestMixin, LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.syndication.views import Feed
 from rest_framework.viewsets import ModelViewSet
@@ -72,11 +72,9 @@ class ProductDetailView(DetailView):
     context_object_name = "product"
 
 
-class ProductCreateView(PermissionRequiredMixin, CreateView):
-    permission_required = "shopapp.add_product"
+class ProductCreateView(CreateView):
     model = Product
     form_class = ProductForm
-    # fields = "name", "price", "description", "discount"
     success_url = reverse_lazy("shopapp:products_list")
 
     def form_valid(self, form):
@@ -102,7 +100,6 @@ class LatestProductsFeed(Feed):
 class UpdateProductView(UserPassesTestMixin, UpdateView):
     model = Product
     form_class = ProductForm
-    # fields = "name", "price", "description", "discount"
     template_name_suffix = "_update_form"
 
     def test_func(self):
@@ -110,9 +107,12 @@ class UpdateProductView(UserPassesTestMixin, UpdateView):
             return True
 
         self.object = self.get_object()
-        has_edit_perm = self.request.user.has_perm("shopapp.change_product")
         created_by_current_user = self.object.created_by == self.request.user
-        return has_edit_perm and created_by_current_user
+        return created_by_current_user
+
+    def handle_no_permission(self):
+        context = {"message": "You do not have rights to do this action"}
+        return render(self.request, "shopapp/permission_denied.html", context)
 
     def get_success_url(self):
         return reverse(
@@ -121,7 +121,7 @@ class UpdateProductView(UserPassesTestMixin, UpdateView):
         )
 
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(UserPassesTestMixin, DeleteView):
     model = Product
     success_url = reverse_lazy("shopapp:products_list")
 
@@ -131,23 +131,39 @@ class ProductDeleteView(DeleteView):
         self.object.save()
         return HttpResponseRedirect(success_url)
 
+    def test_func(self):
+        if self.request.user.is_superuser:
+            return True
+
+        self.object = self.get_object()
+        created_by_current_user = self.object.created_by == self.request.user
+        return created_by_current_user
+
+    def handle_no_permission(self):
+        context = {"message": "You do not have rights to do this action"}
+        return render(self.request, "shopapp/permission_denied.html", context)
+
 
 class OrderListView(ListView):
     queryset = Order.objects.select_related("user").prefetch_related("product")
 
 
-class OrderDetailView(PermissionRequiredMixin, DetailView):
-    permission_required = "shopapp.view_order"
+class OrderDetailView(DetailView):
+    # permission_required = "shopapp.view_order"
     queryset = Order.objects.select_related("user").prefetch_related("product")
 
 
-class OrderCreateView(CreateView):
+class OrderCreateView(LoginRequiredMixin, CreateView):
     model = Order
-    fields = "product", "user", "delivery_address", "promocode"
+    fields = "product", "delivery_address", "promocode"
     success_url = reverse_lazy("shopapp:orders_list")
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
-class UpdateOrderView(UpdateView):
+
+class UpdateOrderView(UserPassesTestMixin, UpdateView):
     model = Order
     fields = "product", "user", "delivery_address", "promocode"
     template_name_suffix = "_update_form"
@@ -158,10 +174,34 @@ class UpdateOrderView(UpdateView):
             kwargs={"pk": self.object.pk},
         )
 
+    def test_func(self):
+        if self.request.user.is_superuser:
+            return True
 
-class OrderDeleteView(DeleteView):
+        self.object = self.get_object()
+        created_by_current_user = self.object.user == self.request.user
+        return created_by_current_user
+
+    def handle_no_permission(self):
+        context = {"message": "You do not have rights to do this action"}
+        return render(self.request, "shopapp/permission_denied.html", context)
+
+
+class OrderDeleteView(UserPassesTestMixin, DeleteView):
     model = Order
     success_url = reverse_lazy("shopapp:orders_list")
+
+    def test_func(self):
+        if self.request.user.is_superuser:
+            return True
+
+        self.object = self.get_object()
+        created_by_current_user = self.object.user == self.request.user
+        return created_by_current_user
+
+    def handle_no_permission(self):
+        context = {"message": "You do not have rights to do this action"}
+        return render(self.request, "shopapp/permission_denied.html", context)
 
 
 class OrderDataExportView(UserPassesTestMixin, View):
@@ -180,7 +220,6 @@ class OrderDataExportView(UserPassesTestMixin, View):
             }
             for order in orders
         ]
-        print(3 + 4)
         return JsonResponse({"orders": orders_data})
 
 

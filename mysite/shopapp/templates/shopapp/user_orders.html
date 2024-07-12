@@ -29,5 +29,5 @@
     {% else %}
         <h3>User {{ owner.username }} no orders yet</h3>
     {% endif %}
-    <h2><a href="{% url 'myauth:user-detail' owner.id %}">Bact to {{ owner.username }}</a></h2>
+    <h3><a href="{% url 'myauth:user-detail' owner.id %}">Bact to {{ owner.username }}</a></h3>
 {% endblock %}

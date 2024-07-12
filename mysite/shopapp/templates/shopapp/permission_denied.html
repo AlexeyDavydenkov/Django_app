@@ -1,0 +1,11 @@
+{% extends "shopapp/base.html" %}
+
+{% block title %}
+	Invalid action
+{% endblock %}
+
+{% block body %}
+    <h1>{{ message }}</h1>
+    <p>Unfortunately, you do not have permission to perform this action.</p>
+    <a href="{% url 'shopapp:index' %}">Go back to the main page</a>
+{% endblock %}

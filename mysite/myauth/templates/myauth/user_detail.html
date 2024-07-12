@@ -13,7 +13,6 @@
     <p>Email: {{ user.email }}</p>
     <p>Bio: {{ user.profile.bio }}</p>
     {% if user.profile.avatar %}
-        <p>Avatar URL: {{ user.profile.avatar.url }}</p>
         <img src="{{ user.profile.avatar.url }}" alt="Avatar">
     {% else %}
         <h3 style="color: darkviolet">
@@ -21,15 +20,17 @@
         </h3>
     {% endif %}
 
-    {% if request.user.is_staff or request.user == user %}
-        <form method="post" enctype="multipart/form-data" action="{% url 'myauth:upload-avatar' %}">
-            {% csrf_token %}
-            <label for="avatar">Upload new avatar:</label>
-            <input type="file" name="avatar" id="avatar">
-            <input type="hidden" name="user_id" value="{{ user.id }}">
-            <button type="submit">Upload</button>
-        </form>
+{#    {% if request.user.is_staff or request.user == user %}#}
+{#        <form method="post" enctype="multipart/form-data" action="{% url 'myauth:upload-avatar' %}">#}
+{#            {% csrf_token %}#}
+{#            <label for="avatar">Upload new avatar:</label>#}
+{#            <input type="file" name="avatar" id="avatar">#}
+{#            <input type="hidden" name="user_id" value="{{ user.id }}">#}
+{#            <button type="submit">Upload</button>#}
+{#        </form>#}
+{#    {% endif %}#}
+    {% if user.is_authenticated %}
+        <h3><a href="{% url "shopapp:user_orders" user.id %}">User orders</a></h3>
     {% endif %}
-    <h3><a href="{% url "shopapp:user_orders" user.id %}">User orders</a></h3>
     <h3><a href="{% url "myauth:users" %}">Back to users list</a></h3>
 {% endblock %}
