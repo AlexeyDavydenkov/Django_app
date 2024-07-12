@@ -1,12 +1,14 @@
 {% extends "myauth/base.html" %}
 
+{% load i18n %}
+
 {% block title %}
-	Update user
+	{% translate "Update user" %}
 {% endblock %}
 
 
 {% block body %}
-	<h1>Update User Information</h1>
+	<h1>{% translate "Update User Information" %}</h1>
     <div>
     <form method="post">
         {% csrf_token %}
@@ -15,7 +17,7 @@
         {{ profile_form.as_p }}
 
         <button type="submit">
-            Update
+            {% translate "Update" %}
         </button>
     </form>
     </div>
@@ -23,7 +25,7 @@
     <div>
     <h3 style="color: darkmagenta">
     <a href="{% url "myauth:about-me" %}">
-        Back
+        {% translate "Back" %}
     </a>
     </h3>
     </div>

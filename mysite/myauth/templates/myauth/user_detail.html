@@ -1,36 +1,28 @@
 {% extends "myauth/base.html" %}
 
+{% load i18n %}
+
 {% block title %}
-	User detail
+	{% translate "User detail" %}
 {% endblock %}
 
 {% block body %}
-    <h1>User detail</h1>
-    <h2>Detail</h2>
-    <p>Username: {{ user.username }}</p>
-    <p>First name: {{ user.first_name }}</p>
-    <p>Last name: {{ user.last_name }}</p>
-    <p>Email: {{ user.email }}</p>
+    <h1>{% translate "User detail" %}</h1>
+    <h2>{% translate "Detail" %}</h2>
+    <p>{% translate "Username" %}: {{ user.username }}</p>
+    <p>{% translate "First name" %}: {{ user.first_name }}</p>
+    <p>{% translate "Last name" %}: {{ user.last_name }}</p>
+    <p>{% translate "Email" %}: {{ user.email }}</p>
     <p>Bio: {{ user.profile.bio }}</p>
     {% if user.profile.avatar %}
         <img src="{{ user.profile.avatar.url }}" alt="Avatar">
     {% else %}
         <h3 style="color: darkviolet">
-            This user does not have an avatar yet
+            {% translate "This user does not have an avatar yet" %}
         </h3>
     {% endif %}
-
-{#    {% if request.user.is_staff or request.user == user %}#}
-{#        <form method="post" enctype="multipart/form-data" action="{% url 'myauth:upload-avatar' %}">#}
-{#            {% csrf_token %}#}
-{#            <label for="avatar">Upload new avatar:</label>#}
-{#            <input type="file" name="avatar" id="avatar">#}
-{#            <input type="hidden" name="user_id" value="{{ user.id }}">#}
-{#            <button type="submit">Upload</button>#}
-{#        </form>#}
-{#    {% endif %}#}
     {% if user.is_authenticated %}
-        <h3><a href="{% url "shopapp:user_orders" user.id %}">User orders</a></h3>
+        <h3><a href="{% url "shopapp:user_orders" user.id %}">{% translate "User orders" %}</a></h3>
     {% endif %}
-    <h3><a href="{% url "myauth:users" %}">Back to users list</a></h3>
+    <h3><a href="{% url "myauth:users" %}">{% translate "Back to users list" %}</a></h3>
 {% endblock %}

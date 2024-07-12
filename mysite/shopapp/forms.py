@@ -18,7 +18,12 @@ class ProductForm(forms.ModelForm):
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = "product", "user", "delivery_address", "promocode"
+        fields = "product", "delivery_address", "promocode"
+        labels = {
+            'product': _("Product"),
+            'delivery_address': _("Delivery_address"),
+            'promocode': _("Promocode"),
+        }
 
 
 class SCVImportForm(forms.Form):

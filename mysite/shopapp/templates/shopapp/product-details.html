@@ -16,10 +16,10 @@
     </div>
 
     {% if user.is_authenticated %}
-        <h3><a href="{% url "shopapp:product_update" pk=product.pk %}">Update product</a></h3>
+        <h3><a href="{% url "shopapp:product_update" pk=product.pk %}">{% translate "Update product"%}</a></h3>
     {% endif %}
     {% if user.is_authenticated %}
-        <h3><a href="{% url "shopapp:product_delete" pk=product.pk %}">Archive product</a></h3>
+        <h3><a href="{% url "shopapp:product_delete" pk=product.pk %}">{% translate "Archive product"%}</a></h3>
     {% endif %}
-    <h3><a href="{% url "shopapp:products_list" %}">Back to products list</a></h3>
+    <h3><a href="{% url "shopapp:products_list" %}">{% translate "Back to products list"%}</a></h3>
 {% endblock %}

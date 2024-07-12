@@ -1,12 +1,13 @@
 {% extends "shopapp/base.html" %}
 
+{% load i18n %}
+
 {% block title %}
-	Update order
+	{% translate "Update order" %}
 {% endblock %}
 
-
 {% block body %}
-	<h1>Update order</h1>
+	<h1>{% translate "Update order" %}</h1>
     <div>
     <form method="post">
         {% csrf_token %}
@@ -14,7 +15,7 @@
         {{ form.as_p }}
 
         <button type="submit">
-            Update
+            {% translate "Update" %}
         </button>
 
     </form>
@@ -23,7 +24,7 @@
     <div>
     <h3 style="color: darkmagenta">
     <a href="{% url "shopapp:order_details" pk=object.pk %}">
-        Back orders #{{ object.pk }}
+        {% translate "Back orders" %} #{{ object.pk }}
     </a>
     </h3>
     </div>

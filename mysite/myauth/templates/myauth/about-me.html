@@ -1,41 +1,43 @@
 {% extends "myauth/base.html" %}
 
+{% load i18n %}
+
 {% block title %}
-	About me
+	{% translate "About me" %}
 {% endblock %}
 
 {% block body %}
-    <h1>User info</h1>
+    <h1>{% translate "User info" %}</h1>
     {% if user.is_authenticated %}
-        <p>Username: {{ user.username }}</p>
-        <p>First name: {{ user.first_name }}</p>
-        <p>Last name: {{ user.last_name }}</p>
-        <p>Email: {{ user.email }}</p>
+        <p>{% translate "Username" %}: {{ user.username }}</p>
+        <p>{% translate "First name" %}: {{ user.first_name }}</p>
+        <p>{% translate "Last name" %}: {{ user.last_name }}</p>
+        <p>{% translate "Email" %}: {{ user.email }}</p>
         <p>Bio: {{ user.profile.bio }}</p>
         {% if user.profile.avatar %}
             <img src="{{ user.profile.avatar.url }}" alt="Avatar">
         {% else %}
             <h3 style="color: darkviolet">
-                This user does not have an avatar yet, use the form below to set an avatar
+                {% translate "This user does not have an avatar yet, use the form below to set an avatar" %}
             </h3>
         {% endif %}
         <form method="post" enctype="multipart/form-data" action={% url "myauth:upload-avatar_me" %}>
             {% csrf_token %}
-            <label for="avatar">Upload new avatar:</label>
+            <label for="avatar">{% translate "Upload new avatar" %}:</label>
             <input type="file" name="avatar" id="avatar">
-            <button type="submit">Upload</button>
+            <button type="submit">{% translate "Upload" %}</button>
         </form>
         <h3 style="color: darkmagenta">
         <a href="{% url "myauth:user_update" pk=user.pk %}">
-            Change personal data
+            {% translate "Change personal data" %}
         </a>
         </h3>
     {% else %}
-        <h2>User is anonymous</h2>
+        <h2>{% translate "User is anonymous" %}</h2>
     {% endif %}
     <h3 style="color: darkmagenta">
     <a href="{% url "shopapp:index" %}">
-        Back to main menu Shop
+        {% translate "Back to main menu Shop" %}
     </a>
     </h3>
 {% endblock %}

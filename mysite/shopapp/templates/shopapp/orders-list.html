@@ -1,35 +1,37 @@
 {% extends "shopapp/base.html" %}
 
+{% load i18n %}
+
 {% block title %}
-	Orders list
+	{% translate "Orders list" %}
 {% endblock %}
 
 {% block body %}
-<h1>Orders:</h1>
+<h1>{% translate "Orders" %}:</h1>
     {% if orders %}
         <div>
         {% for order in orders %}
             <div>
-            <h3>Order by {% firstof order.user.first_name order.user.username %}</h3>
-            <p>Promocode: <code>{{ order.promocode }}</code></p>
-            <p>Delivery address: {{ order.delivery_address }}</p>
+            <h3>{% translate "Order by" %} {% firstof order.user.first_name order.user.username %}</h3>
+            <p>{% translate "Promocode" %}: <code>{{ order.promocode }}</code></p>
+            <p>{% translate "Delivery address" %}: {{ order.delivery_address }}</p>
             <div>
-            Products in order:
+            {% translate "Products in order" %}:
             <ul>
                 {% for product in order.product.all %}
-                    <li>{{ product.name }} for ${{ product.price }}</li>
+                    <li>{{ product.name }} {% translate "for" context "price" %} ${{ product.price }}</li>
                 {% endfor %}
             </ul>
             </div>
         {% endfor %}
         </div>
     {% else %}
-        <h3>No orders yet</h3>
+        <h3>{% translate "No orders yet" %}</h3>
     {% endif %}
     <div>
         <h3 style="color: darkmagenta">
         <a href="{% url "shopapp:create_order" %}">
-            Create a new order
+            {% translate "Create a new order" %}
         </a>
         </h3>
     </div>
@@ -37,7 +39,7 @@
     <div>
         <h3 style="color: darkmagenta">
         <a href="{% url "shopapp:index" %}">
-            Back to main menu Shop
+            {% translate "Back to main menu Shop" %}
         </a>
         </h3>
     </div>

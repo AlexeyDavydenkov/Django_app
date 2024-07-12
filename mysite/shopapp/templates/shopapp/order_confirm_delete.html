@@ -1,21 +1,23 @@
 {% extends 'shopapp/base.html' %}
 
+{% load i18n %}
+
 {% block title %}
-    Confirm delete{{ object.name }}
+    {% translate "Confirm delete" %} {{ object.name }}
 {% endblock %}
 
 {% block body %}
-    <h1>Are you sure you want to delete {{ object.name }}?</h1>
+    <h1>{% translate "Are you sure you want to delete" %} {{ object.name }}?</h1>
     <br>
     <h3>
-        <a href="{% url "shopapp:order_details" pk=object.pk %}">Back to order</a>
+        <a href="{% url "shopapp:order_details" pk=object.pk %}">{% translate "Back to order" %}</a>
     </h3>
     <br>
     <div>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Delete</button>
+        <button type="submit">{% translate "Delete" %}</button>
 
     </form>
     </div>

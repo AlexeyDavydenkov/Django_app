@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 15:33+0000\n"
+"POT-Creation-Date: 2024-07-12 16:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,11 +19,158 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: mysite/settings.py:131
+#: myauth/templates/myauth/about-me.html:6
+msgid "About me"
+msgstr "Информация о пользователе"
+
+#: myauth/templates/myauth/about-me.html:10
+msgid "User info"
+msgstr "Информация о пользователе"
+
+#: myauth/templates/myauth/about-me.html:12
+#: myauth/templates/myauth/user_detail.html:12
+msgid "Username"
+msgstr "Логин"
+
+#: myauth/templates/myauth/about-me.html:13
+#: myauth/templates/myauth/user_detail.html:13
+#: myauth/templates/myauth/user_list.html:14
+msgid "First name"
+msgstr "Имя"
+
+#: myauth/templates/myauth/about-me.html:14
+#: myauth/templates/myauth/user_detail.html:14
+#: myauth/templates/myauth/user_list.html:15
+msgid "Last name"
+msgstr "Фамилия"
+
+#: myauth/templates/myauth/about-me.html:15
+#: myauth/templates/myauth/user_detail.html:15
+msgid "Email"
+msgstr "Email"
+
+#: myauth/templates/myauth/about-me.html:21
+msgid ""
+"This user does not have an avatar yet, use the form below to set an avatar"
+msgstr ""
+"У этого пользователя еще нет аватарки, используйте форму ниже, чтобы "
+"установить аватарку"
+
+#: myauth/templates/myauth/about-me.html:26
+msgid "Upload new avatar"
+msgstr "Загрузить новую аватарку"
+
+#: myauth/templates/myauth/about-me.html:28
+msgid "Upload"
+msgstr "Загрузить"
+
+#: myauth/templates/myauth/about-me.html:32
+msgid "Change personal data"
+msgstr "Редактировить персональные данные"
+
+#: myauth/templates/myauth/about-me.html:36
+msgid "User is anonymous"
+msgstr "Анонимный пользователь, пожалуйста авторизуйтесь"
+
+#: myauth/templates/myauth/about-me.html:40
+#: myauth/templates/myauth/login.html:17
+#: myauth/templates/myauth/register.html:18
+#: myauth/templates/myauth/user_list.html:21
+#: shopapp/templates/shopapp/order_list.html:47
+#: shopapp/templates/shopapp/orders-list.html:42
+#: shopapp/templates/shopapp/products-list.html:53
+msgid "Back to main menu Shop"
+msgstr "Вернуться в меню магазина"
+
+#: myauth/templates/myauth/login.html:6
+msgid "Login user"
+msgstr "Авторизация пользователя"
+
+#: myauth/templates/myauth/login.html:13
+msgid "Login"
+msgstr "Войти"
+
+#: myauth/templates/myauth/logout_confirm.html:6
+msgid "Logout"
+msgstr "Подтверждение выхода"
+
+#: myauth/templates/myauth/logout_confirm.html:10
+msgid "Вы уверены, что хотите выйти"
+msgstr "Вы уверены, что хотите выйти"
+
+#: myauth/templates/myauth/logout_confirm.html:13
+msgid "Выйти"
+msgstr "Выйти"
+
+#: myauth/templates/myauth/logout_confirm.html:15
+msgid "Отмена"
+msgstr "Отмена"
+
+#: myauth/templates/myauth/register.html:6
+msgid "Register user"
+msgstr "Регистрация пользователя"
+
+#: myauth/templates/myauth/register.html:10
+#: shopapp/templates/shopapp/shop-index.html:17
+msgid "Register a new user"
+msgstr "Регистрация нового пользователя"
+
+#: myauth/templates/myauth/register.html:14
+msgid "Register"
+msgstr "Зарегистрировать"
+
+#: myauth/templates/myauth/user_detail.html:6
+#: myauth/templates/myauth/user_detail.html:10
+msgid "User detail"
+msgstr "Информация о пользователе"
+
+#: myauth/templates/myauth/user_detail.html:11
+msgid "Detail"
+msgstr "Подробная информация"
+
+#: myauth/templates/myauth/user_detail.html:21
+msgid "This user does not have an avatar yet"
+msgstr "У этого пользователя еще нет аватарки"
+
+#: myauth/templates/myauth/user_detail.html:25
+msgid "User orders"
+msgstr "Заказы пользователя"
+
+#: myauth/templates/myauth/user_detail.html:27
+msgid "Back to users list"
+msgstr "Назад к списку пользователей"
+
+#: myauth/templates/myauth/user_list.html:6
+msgid "Users list"
+msgstr "Пользователи"
+
+#: myauth/templates/myauth/user_list.html:10
+msgid "User List"
+msgstr "Пользователи"
+
+#: myauth/templates/myauth/user_update_form.html:6
+msgid "Update user"
+msgstr "Редактирование пользователя"
+
+#: myauth/templates/myauth/user_update_form.html:11
+msgid "Update User Information"
+msgstr "Редактировать информацию о пользователе"
+
+#: myauth/templates/myauth/user_update_form.html:20
+#: shopapp/templates/shopapp/order_update_form.html:18
+#: shopapp/templates/shopapp/product_update_form.html:18
+msgid "Update"
+msgstr "Редактировать"
+
+#: myauth/templates/myauth/user_update_form.html:28
+msgid "Back"
+msgstr "Назад"
+
+#: mysite/settings.py:182
 msgid "English"
 msgstr "Англ"
 
-#: mysite/settings.py:132
+#: mysite/settings.py:183
 msgid "Russian"
 msgstr "Русский"
 
@@ -46,21 +193,149 @@ msgstr "Описание"
 msgid "Discount"
 msgstr "Скидка"
 
-#: shopapp/models.py:8
+#: shopapp/forms.py:23 shopapp/models.py:9
 msgid "Product"
 msgstr "Товар"
 
-#: shopapp/models.py:9 shopapp/templates/shopapp/products-list.html:10
+#: shopapp/forms.py:24 shopapp/templates/shopapp/user_orders.html:31
+msgid "User"
+msgstr "У"
+
+#: shopapp/forms.py:25
+msgid "Delivery_address"
+msgstr "Адрес доставки"
+
+#: shopapp/forms.py:26 shopapp/templates/shopapp/order_detail.html:13
+#: shopapp/templates/shopapp/order_list.html:19
+#: shopapp/templates/shopapp/orders-list.html:16
+#: shopapp/templates/shopapp/user_orders.html:17
+msgid "Promocode"
+msgstr "Промокод"
+
+#: shopapp/models.py:10 shopapp/templates/shopapp/products-list.html:10
 msgid "Products"
 msgstr "Товары"
 
-#: shopapp/models.py:24
+#: shopapp/models.py:29 shopapp/templates/shopapp/order_detail.html:10
+#: shopapp/templates/shopapp/user_orders.html:16
 msgid "Order"
 msgstr "Заказ"
 
-#: shopapp/models.py:25
+#: shopapp/models.py:30 shopapp/templates/shopapp/order_list.html:10
+#: shopapp/templates/shopapp/orders-list.html:10
 msgid "Orders"
 msgstr "Заказы"
+
+#: shopapp/templates/shopapp/order_confirm_delete.html:6
+msgid "Confirm delete"
+msgstr "Подтверждение удаления"
+
+#: shopapp/templates/shopapp/order_confirm_delete.html:10
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены что хотите удалить заказ"
+
+#: shopapp/templates/shopapp/order_confirm_delete.html:13
+msgid "Back to order"
+msgstr "Назад к заказу"
+
+#: shopapp/templates/shopapp/order_confirm_delete.html:20
+msgid "Delete"
+msgstr "Удалить"
+
+#: shopapp/templates/shopapp/order_detail.html:6
+#: shopapp/templates/shopapp/order_list.html:16
+msgid "Details order"
+msgstr "Детали заказа"
+
+#: shopapp/templates/shopapp/order_detail.html:12
+#: shopapp/templates/shopapp/order_list.html:18
+#: shopapp/templates/shopapp/orders-list.html:15
+msgid "Order by"
+msgstr "Создан пользователем"
+
+#: shopapp/templates/shopapp/order_detail.html:14
+#: shopapp/templates/shopapp/order_list.html:20
+#: shopapp/templates/shopapp/orders-list.html:17
+#: shopapp/templates/shopapp/user_orders.html:18
+msgid "Delivery address"
+msgstr "Адрес доставки"
+
+#: shopapp/templates/shopapp/order_detail.html:16
+#: shopapp/templates/shopapp/order_list.html:22
+#: shopapp/templates/shopapp/orders-list.html:19
+#: shopapp/templates/shopapp/user_orders.html:20
+msgid "Products in order"
+msgstr "Товары в заказе"
+
+#: shopapp/templates/shopapp/order_detail.html:19
+#: shopapp/templates/shopapp/order_list.html:25
+msgid "for"
+msgstr "цена"
+
+#: shopapp/templates/shopapp/order_detail.html:25
+#: shopapp/templates/shopapp/order_update_form.html:6
+#: shopapp/templates/shopapp/order_update_form.html:10
+msgid "Update order"
+msgstr "Изменение заказа"
+
+#: shopapp/templates/shopapp/order_detail.html:26
+msgid "Delete order"
+msgstr "Удаление заказа"
+
+#: shopapp/templates/shopapp/order_detail.html:27
+msgid "Back to orders"
+msgstr "Назад к заказам"
+
+#: shopapp/templates/shopapp/order_form.html:6
+msgid "Create order"
+msgstr "Создать заказ"
+
+#: shopapp/templates/shopapp/order_form.html:11
+#: shopapp/templates/shopapp/order_list.html:38
+#: shopapp/templates/shopapp/orders-list.html:34
+msgid "Create a new order"
+msgstr "Создать новый заказ"
+
+#: shopapp/templates/shopapp/order_form.html:19
+#: shopapp/templates/shopapp/product_form.html:18
+msgid "Create"
+msgstr "Создать"
+
+#: shopapp/templates/shopapp/order_form.html:28
+msgid "Back to orders list"
+msgstr "Назад к списку заказов"
+
+#: shopapp/templates/shopapp/order_list.html:6
+#: shopapp/templates/shopapp/orders-list.html:6
+msgid "Orders list"
+msgstr "Заказы пользователя"
+
+#: shopapp/templates/shopapp/order_list.html:32
+#: shopapp/templates/shopapp/orders-list.html:29
+msgid "No orders yet"
+msgstr "Пока нет заказов"
+
+#: shopapp/templates/shopapp/order_update_form.html:27
+msgid "Back orders"
+msgstr "Назад к заказу"
+
+#: shopapp/templates/shopapp/orders-list.html:22
+#: shopapp/templates/shopapp/user_orders.html:23
+msgctxt "price"
+msgid "for"
+msgstr "цена"
+
+#: shopapp/templates/shopapp/permission_denied.html:6
+msgid "Invalid action"
+msgstr "Ошибка доступа"
+
+#: shopapp/templates/shopapp/permission_denied.html:11
+msgid "Unfortunately, you do not have permission to perform this action"
+msgstr "К сожалению, у вас нет разрешения на выполнение этого действия."
+
+#: shopapp/templates/shopapp/permission_denied.html:12
+msgid "Go back to the main page"
+msgstr "Вернуться в главное меню магазина"
 
 #: shopapp/templates/shopapp/product-details.html:6
 msgid "Product details"
@@ -75,22 +350,20 @@ msgstr "Наименование товара"
 msgid "Archived"
 msgstr "Архивация позиции"
 
+#: shopapp/templates/shopapp/product-details.html:19
+#: shopapp/templates/shopapp/product_update_form.html:6
+#: shopapp/templates/shopapp/product_update_form.html:11
+msgid "Update product"
+msgstr "Изменение товара"
+
 #: shopapp/templates/shopapp/product-details.html:22
-#, python-format
-msgid ""
-"\n"
-"    \t<h3><a href=\"%(product_update_url)s\">Update product</a></h3>\n"
-"        <h3><a href=\"%(product_delete_url)s\">Archive product</a></h3>\n"
-"        <h3><a href=\"%(products_list_url)s\">Back to products list</a></"
-"h3>\n"
-"    "
-msgstr ""
-"\n"
-"    \t<h3><a href=\"%(product_update_url)s\">Отредактировать товар</a></h3>\n"
-"        <h3><a href=\"%(product_delete_url)s\">Архивация товара</a></h3>\n"
-"        <h3><a href=\"%(products_list_url)s\">Вернуться к списку товаров</"
-"a></h3>\n"
-"    "
+msgid "Archive product"
+msgstr "Архивация позиции"
+
+#: shopapp/templates/shopapp/product-details.html:24
+#: shopapp/templates/shopapp/product_form.html:24
+msgid "Back to products list"
+msgstr "Назад к списку товаров"
 
 #: shopapp/templates/shopapp/product_confirm_delete.html:6
 msgid "Confirm archive"
@@ -113,26 +386,9 @@ msgid "Create product"
 msgstr "Создание товара"
 
 #: shopapp/templates/shopapp/product_form.html:11
-#: shopapp/templates/shopapp/products-list.html:39
+#: shopapp/templates/shopapp/products-list.html:44
 msgid "Create a new product"
 msgstr "Создать новый товар"
-
-#: shopapp/templates/shopapp/product_form.html:18
-msgid "Create"
-msgstr "Создать"
-
-#: shopapp/templates/shopapp/product_form.html:24
-msgid "Back to products list"
-msgstr "Назад к списку товаров"
-
-#: shopapp/templates/shopapp/product_update_form.html:6
-#: shopapp/templates/shopapp/product_update_form.html:11
-msgid "Update product"
-msgstr "Изменение товара"
-
-#: shopapp/templates/shopapp/product_update_form.html:18
-msgid "Update"
-msgstr "Редактировать"
 
 #: shopapp/templates/shopapp/product_update_form.html:24
 msgid "Back products"
@@ -182,8 +438,74 @@ msgstr "Кем создан"
 msgid "No products yet"
 msgstr "Товаров пока нет"
 
-#: shopapp/templates/shopapp/products-list.html:48
-msgid "Back to main menu Shop"
-msgstr "Вернуться в меню магазина"
+#: shopapp/templates/shopapp/products-list.html:36
+msgid "Create a first product"
+msgstr "Создать первый товар"
 
+#: shopapp/templates/shopapp/shop-index.html:6
+msgid "Shop Index"
+msgstr "Основное меню магазина"
 
+#: shopapp/templates/shopapp/shop-index.html:11
+msgid "Hello dear user! We are glad to welcome you to our store!"
+msgstr ""
+"Здравствуйте, уважаемый пользователь! Мы рады приветствовать Вас в нашем "
+"магазине!"
+
+#: shopapp/templates/shopapp/shop-index.html:12
+msgid ""
+"Dear user, in order to get acquainted with all the features of our store, "
+"you must register and log in"
+msgstr ""
+"Уважаемый пользователь, в целях ознакомления со всеми возможностями нашего "
+"магазина необходимо зарегистрироваться и авторизоваться"
+
+#: shopapp/templates/shopapp/shop-index.html:14
+msgid "Come in"
+msgstr "Войти"
+
+#: shopapp/templates/shopapp/shop-index.html:20
+msgid "Current user page"
+msgstr "Страница текущего пользователя"
+
+#: shopapp/templates/shopapp/shop-index.html:24
+msgid "Go to Products_list"
+msgstr "Товары"
+
+#: shopapp/templates/shopapp/shop-index.html:27
+msgid "Go to Orders_list"
+msgstr "Заказы"
+
+#: shopapp/templates/shopapp/shop-index.html:30
+msgid "Go to Users_list"
+msgstr "Пользователи"
+
+#: shopapp/templates/shopapp/shop-index.html:38
+msgid "Today is"
+msgstr "Сегодня"
+
+#: shopapp/templates/shopapp/shop-index.html:41
+msgid "Get out"
+msgstr "Выйти"
+
+#: shopapp/templates/shopapp/user_orders.html:6
+msgid "User orders list"
+msgstr "Заказы пользователя"
+
+#: shopapp/templates/shopapp/user_orders.html:10
+msgctxt "user orders"
+msgid "User"
+msgstr "Заказы"
+
+#: shopapp/templates/shopapp/user_orders.html:10
+msgctxt "no yet"
+msgid "orders"
+msgstr "см"
+
+#: shopapp/templates/shopapp/user_orders.html:31
+msgid "no orders yet"
+msgstr "пока нет товаров"
+
+#: shopapp/templates/shopapp/user_orders.html:33
+msgid "Bact to"
+msgstr "Назад"

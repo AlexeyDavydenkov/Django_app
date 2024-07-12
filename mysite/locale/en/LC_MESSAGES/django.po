@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-28 15:33+0000\n"
+"POT-Creation-Date: 2024-07-12 16:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,157 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: mysite/settings.py:131
+#: myauth/templates/myauth/about-me.html:6
+msgid "About me"
+msgstr "About me"
+
+#: myauth/templates/myauth/about-me.html:10
+msgid "User info"
+msgstr "User info"
+
+#: myauth/templates/myauth/about-me.html:12
+#: myauth/templates/myauth/user_detail.html:12
+msgid "Username"
+msgstr "Username"
+
+#: myauth/templates/myauth/about-me.html:13
+#: myauth/templates/myauth/user_detail.html:13
+#: myauth/templates/myauth/user_list.html:14
+msgid "First name"
+msgstr "First name"
+
+#: myauth/templates/myauth/about-me.html:14
+#: myauth/templates/myauth/user_detail.html:14
+#: myauth/templates/myauth/user_list.html:15
+msgid "Last name"
+msgstr "Last name"
+
+#: myauth/templates/myauth/about-me.html:15
+#: myauth/templates/myauth/user_detail.html:15
+msgid "Email"
+msgstr "Email"
+
+#: myauth/templates/myauth/about-me.html:21
+msgid ""
+"This user does not have an avatar yet, use the form below to set an avatar"
+msgstr ""
+"This user does not have an avatar yet, use the form below to set an avatar"
+
+#: myauth/templates/myauth/about-me.html:26
+msgid "Upload new avatar"
+msgstr "Upload new avata"
+
+#: myauth/templates/myauth/about-me.html:28
+msgid "Upload"
+msgstr "Upload"
+
+#: myauth/templates/myauth/about-me.html:32
+msgid "Change personal data"
+msgstr "Change personal data"
+
+#: myauth/templates/myauth/about-me.html:36
+msgid "User is anonymous"
+msgstr "User is anonymous"
+
+#: myauth/templates/myauth/about-me.html:40
+#: myauth/templates/myauth/login.html:17
+#: myauth/templates/myauth/register.html:18
+#: myauth/templates/myauth/user_list.html:21
+#: shopapp/templates/shopapp/order_list.html:47
+#: shopapp/templates/shopapp/orders-list.html:42
+#: shopapp/templates/shopapp/products-list.html:53
+msgid "Back to main menu Shop"
+msgstr "Back to main menu Shop"
+
+#: myauth/templates/myauth/login.html:6
+msgid "Login user"
+msgstr "Login user"
+
+#: myauth/templates/myauth/login.html:13
+msgid "Login"
+msgstr "Login"
+
+#: myauth/templates/myauth/logout_confirm.html:6
+msgid "Logout"
+msgstr "Logout"
+
+#: myauth/templates/myauth/logout_confirm.html:10
+msgid "Вы уверены, что хотите выйти"
+msgstr "Are you sure you want to go out"
+
+#: myauth/templates/myauth/logout_confirm.html:13
+msgid "Выйти"
+msgstr "Go out"
+
+#: myauth/templates/myauth/logout_confirm.html:15
+msgid "Отмена"
+msgstr "Back"
+
+#: myauth/templates/myauth/register.html:6
+msgid "Register user"
+msgstr "Register user"
+
+#: myauth/templates/myauth/register.html:10
+#: shopapp/templates/shopapp/shop-index.html:17
+msgid "Register a new user"
+msgstr "Register a new user"
+
+#: myauth/templates/myauth/register.html:14
+msgid "Register"
+msgstr "Register"
+
+#: myauth/templates/myauth/user_detail.html:6
+#: myauth/templates/myauth/user_detail.html:10
+msgid "User detail"
+msgstr "User detail"
+
+#: myauth/templates/myauth/user_detail.html:11
+msgid "Detail"
+msgstr "Detail"
+
+#: myauth/templates/myauth/user_detail.html:21
+msgid "This user does not have an avatar yet"
+msgstr "This user does not have an avatar yet"
+
+#: myauth/templates/myauth/user_detail.html:25
+msgid "User orders"
+msgstr "User orders"
+
+#: myauth/templates/myauth/user_detail.html:27
+msgid "Back to users list"
+msgstr "Back to users lis"
+
+#: myauth/templates/myauth/user_list.html:6
+msgid "Users list"
+msgstr "Users list"
+
+#: myauth/templates/myauth/user_list.html:10
+msgid "User List"
+msgstr "User List"
+
+#: myauth/templates/myauth/user_update_form.html:6
+msgid "Update user"
+msgstr "Update user"
+
+#: myauth/templates/myauth/user_update_form.html:11
+msgid "Update User Information"
+msgstr "Update User Information"
+
+#: myauth/templates/myauth/user_update_form.html:20
+#: shopapp/templates/shopapp/order_update_form.html:18
+#: shopapp/templates/shopapp/product_update_form.html:18
+msgid "Update"
+msgstr "Update"
+
+#: myauth/templates/myauth/user_update_form.html:28
+msgid "Back"
+msgstr "Back"
+
+#: mysite/settings.py:182
 msgid "English"
 msgstr "English"
 
-#: mysite/settings.py:132
+#: mysite/settings.py:183
 msgid "Russian"
 msgstr "Russian"
 
@@ -45,21 +191,149 @@ msgstr "Description"
 msgid "Discount"
 msgstr "Discount"
 
-#: shopapp/models.py:8
+#: shopapp/forms.py:23 shopapp/models.py:9
 msgid "Product"
-msgstr ""
+msgstr "Product"
 
-#: shopapp/models.py:9 shopapp/templates/shopapp/products-list.html:10
+#: shopapp/forms.py:24 shopapp/templates/shopapp/user_orders.html:31
+msgid "User"
+msgstr "User"
+
+#: shopapp/forms.py:25
+msgid "Delivery_address"
+msgstr "Delivery address"
+
+#: shopapp/forms.py:26 shopapp/templates/shopapp/order_detail.html:13
+#: shopapp/templates/shopapp/order_list.html:19
+#: shopapp/templates/shopapp/orders-list.html:16
+#: shopapp/templates/shopapp/user_orders.html:17
+msgid "Promocode"
+msgstr "Promocode"
+
+#: shopapp/models.py:10 shopapp/templates/shopapp/products-list.html:10
 msgid "Products"
-msgstr ""
+msgstr "Products"
 
-#: shopapp/models.py:24
+#: shopapp/models.py:29 shopapp/templates/shopapp/order_detail.html:10
+#: shopapp/templates/shopapp/user_orders.html:16
 msgid "Order"
-msgstr ""
+msgstr "Order"
 
-#: shopapp/models.py:25
+#: shopapp/models.py:30 shopapp/templates/shopapp/order_list.html:10
+#: shopapp/templates/shopapp/orders-list.html:10
 msgid "Orders"
-msgstr ""
+msgstr "Orders"
+
+#: shopapp/templates/shopapp/order_confirm_delete.html:6
+msgid "Confirm delete"
+msgstr "Confirm delete"
+
+#: shopapp/templates/shopapp/order_confirm_delete.html:10
+msgid "Are you sure you want to delete"
+msgstr "Are you sure you want to delete"
+
+#: shopapp/templates/shopapp/order_confirm_delete.html:13
+msgid "Back to order"
+msgstr "Back to order"
+
+#: shopapp/templates/shopapp/order_confirm_delete.html:20
+msgid "Delete"
+msgstr "Delete"
+
+#: shopapp/templates/shopapp/order_detail.html:6
+#: shopapp/templates/shopapp/order_list.html:16
+msgid "Details order"
+msgstr "Details order"
+
+#: shopapp/templates/shopapp/order_detail.html:12
+#: shopapp/templates/shopapp/order_list.html:18
+#: shopapp/templates/shopapp/orders-list.html:15
+msgid "Order by"
+msgstr "Order by"
+
+#: shopapp/templates/shopapp/order_detail.html:14
+#: shopapp/templates/shopapp/order_list.html:20
+#: shopapp/templates/shopapp/orders-list.html:17
+#: shopapp/templates/shopapp/user_orders.html:18
+msgid "Delivery address"
+msgstr "Delivery address"
+
+#: shopapp/templates/shopapp/order_detail.html:16
+#: shopapp/templates/shopapp/order_list.html:22
+#: shopapp/templates/shopapp/orders-list.html:19
+#: shopapp/templates/shopapp/user_orders.html:20
+msgid "Products in order"
+msgstr "Products in order"
+
+#: shopapp/templates/shopapp/order_detail.html:19
+#: shopapp/templates/shopapp/order_list.html:25
+msgid "for"
+msgstr "for"
+
+#: shopapp/templates/shopapp/order_detail.html:25
+#: shopapp/templates/shopapp/order_update_form.html:6
+#: shopapp/templates/shopapp/order_update_form.html:10
+msgid "Update order"
+msgstr "Update order"
+
+#: shopapp/templates/shopapp/order_detail.html:26
+msgid "Delete order"
+msgstr "Delete order"
+
+#: shopapp/templates/shopapp/order_detail.html:27
+msgid "Back to orders"
+msgstr "Back to orders"
+
+#: shopapp/templates/shopapp/order_form.html:6
+msgid "Create order"
+msgstr "Create order"
+
+#: shopapp/templates/shopapp/order_form.html:11
+#: shopapp/templates/shopapp/order_list.html:38
+#: shopapp/templates/shopapp/orders-list.html:34
+msgid "Create a new order"
+msgstr "Create a new order"
+
+#: shopapp/templates/shopapp/order_form.html:19
+#: shopapp/templates/shopapp/product_form.html:18
+msgid "Create"
+msgstr "Create"
+
+#: shopapp/templates/shopapp/order_form.html:28
+msgid "Back to orders list"
+msgstr "Back to orders list"
+
+#: shopapp/templates/shopapp/order_list.html:6
+#: shopapp/templates/shopapp/orders-list.html:6
+msgid "Orders list"
+msgstr "Orders list"
+
+#: shopapp/templates/shopapp/order_list.html:32
+#: shopapp/templates/shopapp/orders-list.html:29
+msgid "No orders yet"
+msgstr "No orders yet"
+
+#: shopapp/templates/shopapp/order_update_form.html:27
+msgid "Back orders"
+msgstr "Back orders"
+
+#: shopapp/templates/shopapp/orders-list.html:22
+#: shopapp/templates/shopapp/user_orders.html:23
+msgctxt "price"
+msgid "for"
+msgstr "for"
+
+#: shopapp/templates/shopapp/permission_denied.html:6
+msgid "Invalid action"
+msgstr "Invalid action"
+
+#: shopapp/templates/shopapp/permission_denied.html:11
+msgid "Unfortunately, you do not have permission to perform this action"
+msgstr "Unfortunately, you do not have permission to perform this action"
+
+#: shopapp/templates/shopapp/permission_denied.html:12
+msgid "Go back to the main page"
+msgstr "Go back to the main page"
 
 #: shopapp/templates/shopapp/product-details.html:6
 msgid "Product details"
@@ -74,16 +348,20 @@ msgstr "Product"
 msgid "Archived"
 msgstr "Archived"
 
+#: shopapp/templates/shopapp/product-details.html:19
+#: shopapp/templates/shopapp/product_update_form.html:6
+#: shopapp/templates/shopapp/product_update_form.html:11
+msgid "Update product"
+msgstr "Update product"
+
 #: shopapp/templates/shopapp/product-details.html:22
-#, python-format
-msgid ""
-"\n"
-"    \t<h3><a href=\"%(product_update_url)s\">Update product</a></h3>\n"
-"        <h3><a href=\"%(product_delete_url)s\">Archive product</a></h3>\n"
-"        <h3><a href=\"%(products_list_url)s\">Back to products list</a></"
-"h3>\n"
-"    "
-msgstr ""
+msgid "Archive product"
+msgstr "Archived"
+
+#: shopapp/templates/shopapp/product-details.html:24
+#: shopapp/templates/shopapp/product_form.html:24
+msgid "Back to products list"
+msgstr "Back to products list"
 
 #: shopapp/templates/shopapp/product_confirm_delete.html:6
 msgid "Confirm archive"
@@ -106,26 +384,9 @@ msgid "Create product"
 msgstr "Create product"
 
 #: shopapp/templates/shopapp/product_form.html:11
-#: shopapp/templates/shopapp/products-list.html:39
+#: shopapp/templates/shopapp/products-list.html:44
 msgid "Create a new product"
 msgstr "Create a new product"
-
-#: shopapp/templates/shopapp/product_form.html:18
-msgid "Create"
-msgstr "Create"
-
-#: shopapp/templates/shopapp/product_form.html:24
-msgid "Back to products list"
-msgstr "Back to products list"
-
-#: shopapp/templates/shopapp/product_update_form.html:6
-#: shopapp/templates/shopapp/product_update_form.html:11
-msgid "Update product"
-msgstr "Update product"
-
-#: shopapp/templates/shopapp/product_update_form.html:18
-msgid "Update"
-msgstr "Update"
 
 #: shopapp/templates/shopapp/product_update_form.html:24
 msgid "Back products"
@@ -165,8 +426,72 @@ msgstr "Created_by"
 msgid "No products yet"
 msgstr "No products yet"
 
-#: shopapp/templates/shopapp/products-list.html:48
-msgid "Back to main menu Shop"
-msgstr "Back to main menu Shop"
+#: shopapp/templates/shopapp/products-list.html:36
+msgid "Create a first product"
+msgstr "Create a first product"
 
+#: shopapp/templates/shopapp/shop-index.html:6
+msgid "Shop Index"
+msgstr "Shop Index"
 
+#: shopapp/templates/shopapp/shop-index.html:11
+msgid "Hello dear user! We are glad to welcome you to our store!"
+msgstr "Hello dear user! We are glad to welcome you to our store!"
+
+#: shopapp/templates/shopapp/shop-index.html:12
+msgid ""
+"Dear user, in order to get acquainted with all the features of our store, "
+"you must register and log in"
+msgstr ""
+"Dear user, in order to get acquainted with all the features of our store, "
+"you must register and log in"
+
+#: shopapp/templates/shopapp/shop-index.html:14
+msgid "Come in"
+msgstr "Come in"
+
+#: shopapp/templates/shopapp/shop-index.html:20
+msgid "Current user page"
+msgstr "Current user page"
+
+#: shopapp/templates/shopapp/shop-index.html:24
+msgid "Go to Products_list"
+msgstr "Go to Products_list"
+
+#: shopapp/templates/shopapp/shop-index.html:27
+msgid "Go to Orders_list"
+msgstr "Go to Orders_list"
+
+#: shopapp/templates/shopapp/shop-index.html:30
+msgid "Go to Users_list"
+msgstr "Go to Users_list"
+
+#: shopapp/templates/shopapp/shop-index.html:38
+msgid "Today is"
+msgstr "Today is"
+
+#: shopapp/templates/shopapp/shop-index.html:41
+msgid "Get out"
+msgstr "Get out"
+
+#: shopapp/templates/shopapp/user_orders.html:6
+msgid "User orders list"
+msgstr "User orders list"
+
+#: shopapp/templates/shopapp/user_orders.html:10
+msgctxt "user orders"
+msgid "User"
+msgstr "User"
+
+#: shopapp/templates/shopapp/user_orders.html:10
+msgctxt "no yet"
+msgid "orders"
+msgstr "orders"
+
+#: shopapp/templates/shopapp/user_orders.html:31
+msgid "no orders yet"
+msgstr "no orders yet"
+
+#: shopapp/templates/shopapp/user_orders.html:33
+msgid "Bact to"
+msgstr "Bact to"

@@ -8,12 +8,13 @@ from django.views.generic import ListView, UpdateView, CreateView, DeleteView, D
 from django.contrib.auth.mixins import PermissionRequiredMixin, UserPassesTestMixin, LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.syndication.views import Feed
+from django.utils.translation import gettext_lazy as _
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
 from .models import Product, Order
-from .forms import ProductForm
+from .forms import ProductForm, OrderForm
 from .serializers import OrderSerializer, ProductSerializer
 
 log = logging.getLogger(__name__)
@@ -149,13 +150,12 @@ class OrderListView(ListView):
 
 
 class OrderDetailView(DetailView):
-    # permission_required = "shopapp.view_order"
     queryset = Order.objects.select_related("user").prefetch_related("product")
 
 
 class OrderCreateView(LoginRequiredMixin, CreateView):
     model = Order
-    fields = "product", "delivery_address", "promocode"
+    form_class = OrderForm
     success_url = reverse_lazy("shopapp:orders_list")
 
     def form_valid(self, form):
@@ -165,7 +165,7 @@ class OrderCreateView(LoginRequiredMixin, CreateView):
 
 class UpdateOrderView(UserPassesTestMixin, UpdateView):
     model = Order
-    fields = "product", "user", "delivery_address", "promocode"
+    form_class = OrderForm
     template_name_suffix = "_update_form"
 
     def get_success_url(self):

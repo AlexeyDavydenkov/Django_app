@@ -1,39 +1,41 @@
 {% extends "shopapp/base.html" %}
 
+{% load i18n %}
+
 {% block title %}
-	Orders list
+	{% translate "Orders list" %}
 {% endblock %}
 
 {% block body %}
-<h1>Orders:</h1>
+<h1>{% translate "Orders" %}:</h1>
     {% if object_list %}
         <div>
         {% for order in object_list %}
             <div>
             {% if user.is_authenticated %}
-                <h3><a href="{% url "shopapp:order_details" pk=order.pk %}">Details order #{{ order.pk }}</a></h3>
+                <h3><a href="{% url "shopapp:order_details" pk=order.pk %}">{% translate "Details order" %} #{{ order.pk }}</a></h3>
             {% endif %}
-            <p>Order by {% firstof order.user.first_name order.user.username %}</p>
-            <p>Promocode: <code>{{ order.promocode }}</code></p>
-            <p>Delivery address: {{ order.delivery_address }}</p>
+            <p>{% translate "Order by" %} {% firstof order.user.first_name order.user.username %}</p>
+            <p>{% translate "Promocode" %}: <code>{{ order.promocode }}</code></p>
+            <p>{% translate "Delivery address" %}: {{ order.delivery_address }}</p>
             <div>
-            Products in order:
+            {% translate "Products in order" %}:
             <ul>
                 {% for product in order.product.all %}
-                    <li>{{ product.name }} for ${{ product.price }}</li>
+                    <li>{{ product.name }} {% translate "for" %} ${{ product.price }}</li>
                 {% endfor %}
             </ul>
             </div>
         {% endfor %}
         </div>
     {% else %}
-        <h3>No orders yet</h3>
+        <h3>{% translate "No orders yet" %}</h3>
     {% endif %}
     <div>
     {% if user.is_authenticated %}
         <h3 style="color: darkmagenta">
         <a href="{% url "shopapp:create_order" %}">
-            Create a new order
+            {% translate "Create a new order" %}
         </a>
         </h3>
     {% endif %}
@@ -42,7 +44,7 @@
     <div>
     <h3 style="color: darkmagenta">
     <a href="{% url "shopapp:index" %}">
-        Back to main menu Shop
+        {% translate "Back to main menu Shop" %}
     </a>
     </h3>
     </div>

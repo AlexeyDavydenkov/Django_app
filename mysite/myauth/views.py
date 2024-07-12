@@ -102,7 +102,6 @@ class UpdateUserView(UpdateView):
     def get_success_url(self):
         return reverse_lazy(
             "myauth:about-me",
-            # kwargs={"pk": self.object.pk},
         )
 
 
@@ -125,6 +124,3 @@ def set_session_view(request: HttpRequest) -> HttpResponse:
 def get_session_view(request: HttpRequest) -> HttpResponse:
     value = request.session.get("foobar", "default value")
     return HttpResponse(f"Session value: {value!r}")
-
-
-

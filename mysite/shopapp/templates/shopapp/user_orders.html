@@ -1,25 +1,26 @@
 {% extends "shopapp/base.html" %}
 {% load cache %}
+{% load i18n %}
 
 {% block title %}
-	User orders list
+	{% translate "User orders list" %}
 {% endblock %}
 
 {% block body %}
-<h1>User {{ owner.username }} orders:</h1>
+<h1>{% translate "User" context "user orders" %} {{ owner.username }} {% translate "orders" context "no yet" %}:</h1>
     {% if user_orders %}
         {% cache 200 user_orders owner.username %}
             <div>
             {% for order in user_orders %}
                 <div>
-                <h3>Order #{{ order.pk }}</h3>
-                <p>Promocode: <code>{{ order.promocode }}</code></p>
-                <p>Delivery address: {{ order.delivery_address }}</p>
+                <h3>{% translate "Order" %} #{{ order.pk }}</h3>
+                <p>{% translate "Promocode" %}: <code>{{ order.promocode }}</code></p>
+                <p>{% translate "Delivery address" %}: {{ order.delivery_address }}</p>
                 <div>
-                Products in order:
+                {% translate "Products in order" %}:
                 <ul>
                     {% for product in order.product.all %}
-                        <li>{{ product.name }} for ${{ product.price }}</li>
+                        <li>{{ product.name }} {% translate "for" context "price" %} ${{ product.price }}</li>
                     {% endfor %}
                 </ul>
                 </div>
@@ -27,7 +28,7 @@
             </div>
         {% endcache %}
     {% else %}
-        <h3>User {{ owner.username }} no orders yet</h3>
+        <h3>{% translate "User" %} {{ owner.username }} {% translate "no orders yet" %} </h3>
     {% endif %}
-    <h3><a href="{% url 'myauth:user-detail' owner.id %}">Bact to {{ owner.username }}</a></h3>
+    <h3><a href="{% url 'myauth:user-detail' owner.id %}">{% translate "Bact to" %} {{ owner.username }}</a></h3>
 {% endblock %}

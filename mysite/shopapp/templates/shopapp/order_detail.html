@@ -1,27 +1,29 @@
 {% extends 'shopapp/base.html' %}
 
+{% load i18n %}
+
 {% block title %}
-    Order #{{ object.pk }} details
+    {% translate "Details order" %} #{{ object.pk }}
 {% endblock %}
 
 {% block body %}
-    <h1>Order #{{ object.pk }}</h1>
+    <h1>{% translate "Order" %} #{{ object.pk }}</h1>
     <div>
-        <h3>Order by {% firstof object.user.first_name object.user.username %}</h3>
-        <p>Promocode: <code>{{ object.promocode }}</code></p>
-        <p>Delivery address: {{ object.delivery_address }}</p>
+        <h3>{% translate "Order by" %} {% firstof object.user.first_name object.user.username %}</h3>
+        <p>{% translate "Promocode" %}: <code>{{ object.promocode }}</code></p>
+        <p>{% translate "Delivery address" %}: {{ object.delivery_address }}</p>
         <div>
-            Products in order:
+            {% translate "Products in order" %}:
             <ul>
                 {% for product in object.product.all %}
-                    <li>{{ product.name }} for ${{ product.price }}</li>
+                    <li>{{ product.name }} {% translate "for" %} ${{ product.price }}</li>
                 {% endfor %}
             </ul>
         </div>
     </div>
 
-    <h3><a href="{% url "shopapp:order_update" pk=object.pk %}">Update order</a></h3>
-    <h3><a href="{% url "shopapp:order_delete" pk=object.pk %}">Delete order</a></h3>
-    <h3><a href="{% url "shopapp:orders_list" %}">Back to orders</a></h3>
+    <h3><a href="{% url "shopapp:order_update" pk=object.pk %}">{% translate "Update order" %}</a></h3>
+    <h3><a href="{% url "shopapp:order_delete" pk=object.pk %}">{% translate "Delete order" %}</a></h3>
+    <h3><a href="{% url "shopapp:orders_list" %}">{% translate "Back to orders" %}</a></h3>
 
 {% endblock %}

@@ -1,21 +1,21 @@
 {% extends "myauth/base.html" %}
 
+{% load i18n %}
+
 {% block title %}
-	Register
+	{% translate "Register user" %}
 {% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <h1>{% translate "Register a new user" %}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input style="color: green" type="submit" value="Register">
+        <input style="color: green" type="submit" value="{% translate "Register" %}">
     </form>
     <h3 style="color: darkmagenta">
     <a href="{% url "shopapp:index" %}">
-        Back to main menu Shop
+        {% translate "Back to main menu Shop" %}
     </a>
     </h3>
-
-
 {% endblock %}

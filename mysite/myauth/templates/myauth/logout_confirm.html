@@ -1,14 +1,16 @@
 {% extends "myauth/base.html" %}
 
+{% load i18n %}
+
 {% block title %}
-	Logout
+	{% translate "Logout" %}
 {% endblock %}
 
 {% block body %}
-    <<h2>Вы уверены, что хотите выйти?</h2>
+    <<h2>{% translate  "Вы уверены, что хотите выйти" %}?</h2>
     <form method="post" action="{% url 'myauth:logout' %}">
         {% csrf_token %}
-        <button type="submit">Выйти</button>
+        <button type="submit">{% translate "Выйти" %}</button>
     </form>
-    <h3><a href="{% url 'shopapp:index' %}">Отмена</a></h3>
+    <h3><a href="{% url 'shopapp:index' %}">{% translate "Отмена" %}</a></h3>
 {% endblock %}

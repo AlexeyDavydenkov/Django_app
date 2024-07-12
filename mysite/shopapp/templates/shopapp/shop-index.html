@@ -1,32 +1,33 @@
 {% extends "shopapp/base.html" %}
 
+{% load i18n %}
+
 {% block title %}
-    Shop Index
+    {% translate "Shop Index" %}
 {% endblock %}
 
 
 {% block body %}
-    <h1>
-        "Hello dear user! We are glad to welcome you to our store!"
-    </h1>
+    <h1>{% translate "Hello dear user! We are glad to welcome you to our store!" %}</h1>
+    <h2>{% translate "Dear user, in order to get acquainted with all the features of our store, you must register and log in" %}</h2>
     <div>
-        <h4><a href="{% url "myauth:login" %}">Come in</a></h4>
+        <h4><a href="{% url "myauth:login" %}">{% translate "Come in" %}</a></h4>
     </div>
     <div>
-        <h4><a href="{% url "myauth:register" %}">Register a new user</a></h4>
+        <h4><a href="{% url "myauth:register" %}">{% translate "Register a new user" %}</a></h4>
     </div>
     <div>
-        <h4><a href="{% url "myauth:about-me" %}">Current user page</a></h4>
+        <h4><a href="{% url "myauth:about-me" %}">{% translate "Current user page" %}</a></h4>
     </div>
 
     <div>
-        <h3><a href="{% url "shopapp:products_list" %}">Go to Products_list</a></h3>
+        <h3><a href="{% url "shopapp:products_list" %}">{% translate "Go to Products_list" %}</a></h3>
     </div>
     <div>
-        <h3><a href="{% url "shopapp:orders_list" %}">Go to Orders_list</a></h3>
+        <h3><a href="{% url "shopapp:orders_list" %}">{% translate "Go to Orders_list" %}</a></h3>
     </div>
      <div>
-        <h3><a href="{% url "myauth:users" %}">Go to Users_list</a></h3>
+        <h3><a href="{% url "myauth:users" %}">{% translate "Go to Users_list" %}</a></h3>
     </div>
 
     <div>
@@ -34,10 +35,10 @@
     </div>
     <div>
         {% now "l" as weekday %}
-        Today is {{ weekday }}
+        {% translate "Today is" %} {{ weekday }}
     </div>
     <div>
-        <h4><a href="{% url "myauth:logout_confirm" %}">Get out</a></h4>
+        <h4><a href="{% url "myauth:logout_confirm" %}">{% translate "Get out" %}</a></h4>
     </div>
 
 {% endblock %}
