@@ -9,6 +9,15 @@
     <h1>
         "Hello dear user! We are glad to welcome you to our store!"
     </h1>
+    <div>
+        <h4><a href="{% url "myauth:login" %}">Come in</a></h4>
+    </div>
+    <div>
+        <h5><a href="{% url "myauth:register" %}">Register a new user</a></h5>
+    </div>
+    <div>
+        <h5><a href="{% url "myauth:about-me" %}">Current user page</a></h5>
+    </div>
 
     <div>
         <h3><a href="{% url "shopapp:products_list" %}">Go to Products_list</a></h3>
@@ -26,6 +35,9 @@
     <div>
         {% now "l" as weekday %}
         Today is {{ weekday }}
+    </div>
+    <div>
+        <h5><a href="{% url "myauth:logout_confirm" %}">Get out</a></h5>
     </div>
 
 {% endblock %}

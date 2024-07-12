@@ -14,6 +14,7 @@
         <p>Email: {{ user.email }}</p>
         <p>Bio: {{ user.profile.bio }}</p>
         {% if user.profile.avatar %}
+            <p>Avatar URL: {{ user.profile.avatar.url }}</p>
             <img src="{{ user.profile.avatar.url }}" alt="Avatar">
         {% else %}
             <h3 style="color: darkviolet">
@@ -29,4 +30,9 @@
     {% else %}
         <h2>User is anonymous</h2>
     {% endif %}
+    <h3 style="color: darkmagenta">
+    <a href="{% url "shopapp:index" %}">
+        Back to main menu Shop
+    </a>
+    </h3>
 {% endblock %}

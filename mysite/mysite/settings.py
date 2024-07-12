@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
+from dotenv import load_dotenv
 from pathlib import Path
 
 from django.urls import reverse_lazy
@@ -20,6 +21,8 @@ from os import getenv
 import logging.config
 
 import sentry_sdk
+
+load_dotenv()
 
 sentry_sdk.init(
     dsn="https://ec23a311c6650d91844d3954544cd69b@o4507191050960896.ingest.de.sentry.io/4507549713956944",
@@ -49,7 +52,7 @@ SECRET_KEY = getenv(
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = getenv("DJANGO_DEBUG", "0") == "1"
-
+# DEBUG = True
 ALLOWED_HOSTS = [
     '0.0.0.0',
     '127.0.0.1',

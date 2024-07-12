@@ -31,6 +31,11 @@
     </div>
     {% else %}
     <h3>{% translate "No products yet" %}</h3>
+    <h3 style="color: darkmagenta">
+        <a href="{% url "shopapp:product_create" %}">
+            {% translate "Create a first product" %}
+        </a>
+        </h3>
     {% endif %}
     <div>
     {% if perms.shopapp.add_product %}
@@ -43,10 +48,10 @@
     </div>
 
     <div>
-    <h2 style="color: darkmagenta">
+    <h3 style="color: darkmagenta">
     <a href="{% url "shopapp:index" %}">
         {% translate "Back to main menu Shop" %}
     </a>
-    </h2>
+    </h3>
     </div>
 {% endblock %}

@@ -13,7 +13,8 @@
     <p>Email: {{ user.email }}</p>
     <p>Bio: {{ user.profile.bio }}</p>
     {% if user.profile.avatar %}
-    <img src="{{ user.profile.avatar.url }}" alt="Avatar">
+        <p>Avatar URL: {{ user.profile.avatar.url }}</p>
+        <img src="{{ user.profile.avatar.url }}" alt="Avatar">
     {% else %}
         <h3 style="color: darkviolet">
             This user does not have an avatar yet
@@ -30,5 +31,5 @@
         </form>
     {% endif %}
     <h3><a href="{% url "shopapp:user_orders" user.id %}">User orders</a></h3>
-    <h2><a href="{% url "myauth:users" %}">Back to users list</a></h2>
+    <h3><a href="{% url "myauth:users" %}">Back to users list</a></h3>
 {% endblock %}
