@@ -136,4 +136,5 @@ dmypy.json
 mysite/database/db.sqlite3
 /nginx/
 mysite/uploads/profile
+mysite/staticfiles
 
