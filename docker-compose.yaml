@@ -30,6 +30,14 @@ services:
       - ./mysite/uploads:/app/uploads
 
 
+  certbot:
+    image: certbot/certbot:2.11.0
+    volumes:
+      - ./nginx/certs:/etc/letsencrypt
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+
   nginx:
     build:
       context: .
@@ -49,12 +57,7 @@ services:
     env_file:
       - .env
 
-  certbot:
-    image: certbot/certbot
-    volumes:
-      - ./nginx/certs:/etc/letsencrypt
-      - ./nginx/conf.d:/etc/nginx/conf.d
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
 
 #  grafana:
 #    image: grafana/grafana:11.1.0
