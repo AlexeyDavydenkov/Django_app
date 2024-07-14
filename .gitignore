@@ -134,5 +134,6 @@ dmypy.json
 .idea/
 
 mysite/database/db.sqlite3
-/nginx
-uploads/profile
+/nginx/
+mysite/uploads/profile/
+
