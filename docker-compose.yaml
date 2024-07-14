@@ -54,23 +54,8 @@ services:
       - ./nginx/certs:/etc/letsencrypt
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./options-ssl-nginx.conf:/etc/letsencrypt/options-ssl-nginx.conf
-      - ./alexdavyd.ru:/etc/letsencrypt/alexdavyd.ru
     environment:
       - SERVER_NAME=${SERVER_NAME}
     env_file:
       - .env
-#    command: bash -c "sleep 10 && docker cp certbot:/etc/letsencrypt/options-ssl-nginx.conf /etc/letsencrypt/options-ssl-nginx.conf && nginx -g 'daemon off;'"
 
-
-#  grafana:
-#    image: grafana/grafana:11.1.0
-#    environment:
-#      - GF_AUTH_ANONYMOUS_ENABLED=true
-#      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
-#    ports:
-#      - "3000:3000"
-#
-#  loki:
-#    image: grafana/loki:3.0.0
-#    ports:
-#      - "3100:3100"
