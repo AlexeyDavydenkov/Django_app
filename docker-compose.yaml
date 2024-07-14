@@ -31,7 +31,7 @@ services:
 
 
   certbot:
-    image: certbot/certbot:2.11.0
+    image: certbot/certbot
     volumes:
       - ./nginx/certs:/etc/letsencrypt
       - ./nginx/conf.d:/etc/nginx/conf.d
