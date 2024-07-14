@@ -4,5 +4,12 @@
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../Python_Basic" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../python_advanced" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../python_advanced_diploma" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../python_advanced_diploma_2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../python_advanced_practic" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../python_basic_diploma" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../python_django" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../test_my_flask" vcs="Git" />
   </component>
 </project>
