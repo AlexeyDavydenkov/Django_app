@@ -57,7 +57,7 @@ services:
       - SERVER_NAME=${SERVER_NAME}
     env_file:
       - .env
-
+    command: bash -c "sleep 10 && docker cp certbot:/etc/letsencrypt/options-ssl-nginx.conf /etc/letsencrypt/options-ssl-nginx.conf && nginx -g 'daemon off;'"
 
 
 #  grafana:
