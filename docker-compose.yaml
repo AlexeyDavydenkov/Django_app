@@ -48,7 +48,7 @@ services:
       - "443:443"
     depends_on:
       - app
-      - certbot  # зависимость от certbot для корректной сборки nginx
+      - certbot
     volumes:
       - ./mysite/staticfiles:/app/staticfiles
       - ./mysite/uploads:/app/uploads
