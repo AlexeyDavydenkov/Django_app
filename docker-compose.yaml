@@ -55,6 +55,7 @@ services:
       - ./nginx/certs:/etc/letsencrypt
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./options-ssl-nginx.conf:/etc/letsencrypt/options-ssl-nginx.conf
+      - ./nginx/html:/usr/share/nginx/html
     environment:
       - SERVER_NAME=${SERVER_NAME}
     env_file:
