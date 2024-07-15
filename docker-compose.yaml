@@ -35,6 +35,7 @@ services:
     volumes:
       - ./nginx/certs:/etc/letsencrypt
       - ./nginx/conf.d:/etc/nginx/conf.d
+      - /usr/share/nginx/html
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
 
