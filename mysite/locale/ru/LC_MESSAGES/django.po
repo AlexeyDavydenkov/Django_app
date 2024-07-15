@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-12 16:56+0000\n"
+"POT-Creation-Date: 2024-07-15 15:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -197,15 +197,11 @@ msgstr "Скидка"
 msgid "Product"
 msgstr "Товар"
 
-#: shopapp/forms.py:24 shopapp/templates/shopapp/user_orders.html:31
-msgid "User"
-msgstr "У"
-
-#: shopapp/forms.py:25
+#: shopapp/forms.py:24
 msgid "Delivery_address"
 msgstr "Адрес доставки"
 
-#: shopapp/forms.py:26 shopapp/templates/shopapp/order_detail.html:13
+#: shopapp/forms.py:25 shopapp/templates/shopapp/order_detail.html:13
 #: shopapp/templates/shopapp/order_list.html:19
 #: shopapp/templates/shopapp/orders-list.html:16
 #: shopapp/templates/shopapp/user_orders.html:17
@@ -501,6 +497,10 @@ msgstr "Заказы"
 msgctxt "no yet"
 msgid "orders"
 msgstr "см"
+
+#: shopapp/templates/shopapp/user_orders.html:31
+msgid "User"
+msgstr "У"
 
 #: shopapp/templates/shopapp/user_orders.html:31
 msgid "no orders yet"
