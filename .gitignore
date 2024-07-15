@@ -135,7 +135,7 @@ dmypy.json
 
 mysite/database/db.sqlite3
 
-mysite/uploads/profile
-mysite/staticfiles
+#mysite/uploads/profile
+
 
 
